@@ -21,6 +21,14 @@ const UserMenu = ({ currentUser }: UserMenuProps) => {
       setIsOpen((value) => !value);
    }, []);
 
+   const onRent = useCallback(() => {
+      if (!currentUser) {
+         return loginModal.onOpen();
+      }
+
+      // open Rent Modal
+   }, [currentUser, loginModal]);
+
   return (
    <div className="relative">
       <div
@@ -31,7 +39,7 @@ const UserMenu = ({ currentUser }: UserMenuProps) => {
          gap-3   
          ">
          <div
-            onClick={() => {}}
+            onClick={onRent}
             className="
                hidden
                md:block
